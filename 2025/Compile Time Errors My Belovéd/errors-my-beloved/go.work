@@ -1,0 +1,11 @@
+go 1.25.0
+
+use (
+	./boolean
+	./distant
+	./generated
+	./iface
+	./sizeofstring
+	./stringer
+	./constraint
+)
