@@ -222,7 +222,7 @@ As a software engineer who has been working on large-scale Go services for 7 yea
 
 In this talk, Sergii will dive into internals of Git protocol and his experience implementing Git SSH server in Go using excellent gliderlabs/ssh library. This specifically covers internal workings of `git clone` operation and steps Git normally does during its `git-upload-pack` operation. He’ll show some simple Go code that receives SSH requests and walks Git commit graph to select objects to send back to the client.
 
-#### To Trie or Not to Trie: Typeahead Completion Using Redis - Garrett Denis, Skool
+#### [To Trie or Not to Trie: Typeahead Completion Using Redis - Garrett Denis, Skool](./2025/To%20Trie%20or%20Not%20to%20Trie%20-%20Typeahead%20Completion%20Using%20Redis/)
 
 Ditch Postgres LIKE queries for a Redis-backed trie to supercharge @mentions. In this talk, you'll learn how we moved @mentions off Postgres into Redis, built a prefix tree for typeahead completion, and cut latency by 80% under heavy load.
 
