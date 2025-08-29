@@ -4,6 +4,8 @@ This repo contains slides and other presentation materials from [GopherCon](http
 
 If materials are available for a talk, the title will be a link to a sub-folder in this repo. See [CONTRIBUTING.md](./CONTRIBUTING.md) if you are a speaker and would like your content included.
 
+<hr/>
+
 ## 2025
 
 ### Main Theater
@@ -169,6 +171,8 @@ This is your yearly appointment to learn about the progress of Go’s cryptograp
 As artificial intelligence continues to reshape the practice of software engineering, Go developers face both exciting opportunities and unique challenges. This panel will explore how AI is influencing the Go ecosystem—from building AI-powered systems in Go to integrating with popular AI services. Panelists will discuss Go's role in AI-powered software and infrastructure as well as community efforts to bridge Go and AI. Attendees will gain insights into how Go continues to remain relevant and competitive now and in the AI future.
 
 Panelists: David Soria Parra, Gari Singh, Ian Cottrell, Jaana Dogan
+
+<hr/>
 
 ### Lightning Talks
 
