@@ -16,7 +16,7 @@ Go is more than just a programming language—it's an industry pioneer. From its
 
 In this keynote, we’ll explore Go's legacy of leadership and how its core design principles make it well-positioned to lead us into the next frontier: the convergence of AI and programming languages. By examining what the Go team is working on now, we’ll also share a vision of Go’s future developer experience and what we’re most excited about in the AI era.
 
-#### LLM Agents in Production: Why Go is the Missing Piece - Kartik Ramesh
+#### [LLM Agents in Production: Why Go is the Missing Piece - Kartik Ramesh](./2025/LLM%20Agents%20in%20Production:%20Why%20Go%20is%20the%20Missing%20Piece)
 
 You might have heard of this thing called AI agents that have been transforming our industry lately. While there exist a plethora of ways to prototype agents, operating these in production brings a new set of challenges. This talk demonstrates why Go is uniquely suited for building scalable, production-ready agent systems. We'll build an LLM agent from scratch without using any agent frameworks, scale our system out to a multi-agent architecture, and leverage Go's cloud-native ecosystem to operate agents at scale.
 
