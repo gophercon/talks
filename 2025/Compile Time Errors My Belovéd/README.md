@@ -11,7 +11,7 @@ Shall we check out static assertions in Go?
 
 The presentation is written for [present](https://pkg.go.dev/golang.org/x/tools/cmd/present).
 It is essentially a Markdown document with speaker notes on lines beginning with `:`. (The entire script is written in the speaker notes.)
-To view the slides in their pretty format, clone this repo and navigate to this directory, and then with the Go toolchain installed, run the command:
+To view the slides in their pretty format, clone this repo _recursively_ (the example code is in a submodule) and navigate to this directory, and then with the Go toolchain installed, run the command:
 
 	go run golang.org/x/tools/cmd/present@latest -notes
 
