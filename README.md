@@ -82,7 +82,7 @@ At [Assembled](https://www.assembled.com/), we serve tens of millions of LLM req
 
 This talk shares concrete patterns from our experience deploying Go-based LLM systems at scale: from handling structured outputs to parallel RAG pipelines. You'll learn practical approaches for building performant, reliable AI applications leveraging Go's strengths.
 
-#### Porting the TypeScript Compiler to Go for a 10x Speedup - Jake Bailey
+#### [Porting the TypeScript Compiler to Go for a 10x Speedup - Jake Bailey](/2025/Porting%20the%20TypeScript%20Compiler%20to%20Go%20for%20a%2010x%20Speedup/README.md)
 
 From the beginning, the TypeScript compiler has been self-hosted, evolving alongside a growing ecosystem of millions of developers. As time went on, we faced challenges with the compiler's performance, largely inherent to the implementation language itself. Through experimentation and testing, we found Go to be an excellent language for our specific needs; a perfect porting language. In this talk, we will explore the process of porting the 150,000+ line TypeScript compiler and its 90,000+ tests to Go, the challenges we faced, lessons we learned, all leading to an overall 10x performance improvement over our previous implementation.
 
