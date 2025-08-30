@@ -1,0 +1,229 @@
+# Compile Time Errors My Belovéd
+GopherCon 2025
+27 Aug 2025
+Summary: Type errors from the compiler tell us when our code is obviously wrong, immediately, without ever having to run our code. But it turns out there are techniques to turn "obviously wrong" into powerful proofs of correctness. We can automatically detect code and tests that need to be updated as faraway definitions change. We can have confidence that our programs run the same on every target, not just the ones we have test runners for. Shall we check out static assertions in Go?
+
+Branden J Brown
+Software Developer
+https://zephyrtronium.date/
+https://gitlab.com/zephyrtronium/
+https://zephyrtronium.github.io/
+
+
+## Me
+
+.image kita-qart.png
+
+: I like to write code that doesn't compile. Unlike the intern who somehow circumvented your team's CI pipeline, I do it on purpose. I have been programming for longer than the median college student has been alive, and in that time I've, acquired the attitude that what I want is software that /can't not/ work.
+
+## Who This Talk Isn't For
+
+: This talk's inspiration comes from my experience striving for that goal. It addresses a particular set of circumstances. Due to this, if you exclusively work on programs that are only used once, never read by another human, and then permanently deleted from every computer, you're outside the target audience. Raise your hand if that's you.
+: While I'm at it, I want to stress that this talk isn't academic. I'm going to describe some advanced techniques that require judgment on when to apply them, but they have all been used in real systems, and I've watched them actively save hours of developer time. And lose developer time, but I'll have advice about that.
+
+## An Example
+
+: I'll start off with something more universal. There's a good chance you've seen something a lot like this. I have an interface type, and a type that implements that interface. Then, I have this blank, where I assign the concrete type to a variable declared with the interface type.
+: This code does nothing. No matter what else I write, if the program compiles, there's no way to use or even observe this assignment.
+
+.code errors-my-beloved/iface/guitarist.go 2,$
+
+: Of course, this program doesn't compile.
+
+## Thank You, Compiler
+
+: The compile-time error that I love tells me that the type doesn't, you know, implement the interface. Along with why it doesn't.
+
+	./guitarist.go:13:19: cannot use (*Bocchi)(nil) (value of type *Bocchi) as Guitarist value in
+	variable declaration: *Bocchi does not implement Guitarist (wrong type for method Strum)
+                have Strum(string)
+                want Strum(Chord)
+
+## My Belovéd Implements Assertion
+
+	type Guitarist interface {
+		Strum()
+	}
+
+	type Bocchi struct {
+		Guitar string
+	}
+
+	func (b *Bocchi) Strum(note string) {}
+
+	var _ Guitarist = (*Bocchi)(nil) // assert that *Bocchi implements Guitarist
+
+: Go doesn't have an 'implements' keyword, but this serves kind of the same purpose. We might call it an 'implements' assertion. Even though we would normally get the same error message wherever we try to /use/ Bocchi as a Guitarist, this lets us have the error point right next to the type.
+
+## Distant Interface
+
+.code errors-my-beloved/distant/brain/brain.go
+.code errors-my-beloved/distant/brain/sqlbrain/brain.go
+.code errors-my-beloved/distant/main.go
+
+: That's especially nice when the interface, implementers, and usage are all distant from each other, á là dependency injection. And especially if you're still prototyping a design, such that the interface might be subject to change. When you adjust the interface's methods, having a lovely compile time error to take you right to the place to make changes can end up saving a lot of time.
+
+## Artifacts are Evidence of Correctness
+
+: This implements assertion can be thought of as the programmer making a claim – Bocchi is assignable to Guitarist – and having the compiler verify that claim. Compiled Go programs are therefore evidence of the correctness of all the claims in their source code.
+: The question arises: What other kinds of claims can we make? That's surprisingly tricky to answer. Generally speaking, we need to work within the list of things the compiler computes, and Go makes a point of limiting that list in order to have fast builds.
+
+## My Belovéd Numeric Assertion
+
+	var _ [0]struct{} = [constReality - myExpectation]struct{}{}
+
+: However, every Go compiler does arithmetic on numeric constants. We can turn that into an assertion by putting the arithmetic somewhere that only a particular value makes sense. There are a few candidates for this, but the strongest is in the size of an array. (To be clear, this has nothing to do with slices.) Have the compiler compute some constant, subtract out what I expect the result to be, and I have an array that's size 0 if and only if I'm correct.
+: We do need to use constants exclusively, which means there aren't a lot of things we can use.
+
+## Iota Enumerants
+
+	type BandMember int
+
+	const (
+		Bocchi BandMember = iota
+		Ryo
+		Nijika
+		Kita
+
+		maxBand // must be last
+	)
+
+	val _ [0]struct{} = [maxBand - 4]struct{}{} // assert there are exactly four band members
+
+: The first thing is probably obvious. It turns out that constants are constants. If I use iota to define a list of them, I can assert any of their values using this technique.
+: ... I can't blame you if that doesn't sound useful.
+
+## Stringer
+
+.code errors-my-beloved/stringer/kessoku/bandmember_string.go 1,+16
+
+: But, it turns out that if you've ever used the stringer tool, you've used this technique. Or, technically, a closely related one. I would love to go into the details about what's different, but, this segment is called "lightning talks" for a reason.
+: Thanks to this generated code, the String method for this type can never drift out of sync with the actual list of constants. If you rearrange them, remove them, or otherwise change their values, a compile-time error reminds you to re-run stringer.
+: I /love/ compile-time errors.
+
+## Functions from Types to Constants
+
+: Other than named constants, there is another category we can bring into these checks: built-in functions. There are some which – more or less – take types as arguments and return constants. Len and cap give constants when their arguments are array types, for example, although I haven't found a use for those in particular.
+
+## Safety From Unsafe
+
+: Ironically, the built-in functions I've used most for this purpose live in package unsafe. Sizeof, Alignof, and Offsetof effectively take types, even if they aren't written as such, and they produce integer constants.
+
+	package unsafe
+
+	// Sizeof takes an expression x of any type and returns the size in bytes … The return value of
+	// Sizeof is a Go constant if the type of the argument x does not have variable size.
+	// (A type has variable size if it [is or contains] a type parameter.)
+	func Sizeof(x ArbitraryType) uintptr
+
+	// ditto
+	func Alignof(x ArbitraryType) uintptr
+
+	// ditto
+	func Offsetof(x ArbitraryType) uintptr
+
+## Numeric Assertion My Belovéd Still
+
+.code errors-my-beloved/sizeofstring/step1.go /step1/,$
+
+	$ go build ./step1.go
+	step1.go:13:21: cannot use [unsafe.Sizeof(Bocchi{}) - 0]struct{}{} (value of type [16]struct{})
+	as [0]struct{} value in variable declaration
+	$
+
+: Therefore, we can use them in that numeric assertion pattern. And if we don't immediately know the number to use, the belovéd compile-time error will guide us there: start with 0 as the assumption, and the compiler will tell us we have a value of type, in this case, 16 struct. That means a Bocchi is sixteen bytes.
+
+## Constructing the Numeric Assertion
+
+.code errors-my-beloved/sizeofstring/step2.go /step2/,$
+
+	$ go build ./step2.go
+	$
+
+: Toss in that number, and now it compiles.
+
+: ...
+
+## Just That Easy
+
+: ...
+
+: Let me remind you that this talk is about detecting incorrect programs without having to run tests. Raise your hand if you've ever compiled Go code for ARM, like a Raspberry Pi.
+
+## Just That Easyn't
+
+	type Bocchi struct {
+		x uint32
+		// —— secret [4]byte here on 64-bit targets, but not on 32-bit
+		y uint64
+	}
+:
+	$ go build ./step2.go
+	$ GOARCH=arm go build ./step2.go
+	step2.go:8:22: unsafe.Sizeof(Bocchi{}) - 16 (constant -4 of type uintptr) overflows uintptr
+	$
+
+: There are details of type layouts that differ between target platforms. My assertion doesn't pass on ARM, so the code doesn't compile.
+: Erik and Johnny have been offering trivia questions this week, and I have one of my own: Is the size of this type 12 or 16, on WebAssembly? I'll give you, uh, two seconds to answer. 16.
+
+## Just That Easy Although Maybe Slightly Long If You Really Want to Be Universally Correct Absolutely Everywhere Especially Doing This For a Big Struct Type With Many Fields Like Really Imagine How Long It Would Get Listing Out the Size of Each Field Inside the Length of an Array Type and Then You Also Need to Assert The Size of the Struct Itself to Be Sure New Fields Aren't Added So Really Even Though I am Telling You to Do This I Would Be Remiss If I Were to Say to Do It Everywhere Since You Should Only Do It Where It Really Matters
+
+.code errors-my-beloved/sizeofstring/step3.go /step3/,+8
+
+	$ go build ./step3.go
+	$ GOARCH=arm go build ./step3.go
+	$
+
+: It's possible to get this assertion to work everywhere, by very explicitly saying what you mean instead of summarizing.
+: Realistically, the better advice is to only use this technique where it matters.
+
+## Where It Matters
+
+	// Don't add fields to the bucket unnecessarily. It is packed for efficiency so
+	// that we can fit 2 buckets into a 64-byte cache line on 64-bit architectures.
+	// This will cause a type error if the size of a bucket changes.
+	var _ [0]struct{} = [unsafe.Sizeof(bucket[int, int]{}) - expectedBucketSize]struct{}{}
+
+.link https://github.com/cockroachdb/swiss/pull/30
+
+: Like if you're writing a high performance data structure, for example a Swiss table implementation for the Go runtime, and your type has to be exactly aligned with cache lines to avoid a performance cliff.
+
+: Or where the types are outside your control, and you need a reminder to update code and tests when they change.
+
+	// Assert that the cgo-free cl.Version is really the same type as C's cl_version.
+	var _ [0]struct{} = [unsafe.Sizeof(cl.Version(0)) - C.sizeof_cl_version]
+
+.link https://gitlab.com/zephyrtronium/cl/-/blob/master/internal/cgoproxy/version.go
+
+: I've used this to guarantee that my choice of Go type for a cgo-free API wrapper was the correct one, as well as during prototyping when a type was generated from someone else's database schema, so that I would always have a reminder to update unit tests when new columns were added.
+
+	$ go run github.com/xo/xo@v1.0.2 schema sqlite://bocchi.sqlite3
+	$ go test
+	./bocchi_test.go:11:21: cannot use [unsafe.Sizeof(models.Bocchi{}) - 56]struct{}{}
+	(value of type [16]struct{}) as [0]struct{} value in variable declaration
+	FAIL    git.sunturtle.xyz/zephyr/errors-my-beloved/generated [build failed]
+	$
+
+(this one is based on internal code i wrote for work)
+
+## x/tools
+
+	// If the size of token.FileSet changes, this will fail to compile.
+	const delta = int64(unsafe.Sizeof(tokenFileSet{})) - int64(unsafe.Sizeof(token.FileSet{}))
+	var _ [-delta * delta]int
+
+.link https://go.dev/issue/74462
+
+: It's also nice if you need an unsafe copy of a type defined elsewhere to work around a critical performance issue. Unfortunately, this is how the x tools folks recently learned not to put this kind of check in importable code: if your assertion fails due to a change somewhere else, everyone who imports you stops compiling as well. Test files are great for this.
+
+## More
+
+: I've had to talk pretty fast to get out everything I want to say, and there's still plenty more that I could add. That said, it is the themes and the mindset of this talk that are really important. Whether writing static assertions like I've shown or just designing an API that's hard to misuse, making code that /can't not/ work saves hours each time. My task for all of you is to turn "investing in your code" into the next business catchphrase.
+
+.code errors-my-beloved/boolean/boolean_test.go
+
+.code errors-my-beloved/constraint/cgo_is_required.go
+
+## Cat Sitting On Me
+
+.image cat.png _ 456

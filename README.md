@@ -204,7 +204,7 @@ Discover how we leveraged AI to transform workflow diagrams into Dapr Workflow a
 
 Single Static Assignment (SSA) form makes it easier to explicitly analyze operations on the same value over a control flow graph. Because SSA represents a program's control flow as a graph, general graph algorithms can be applied. In this talk, Takuya will demonstrate static analyses that he has implemented himself—such as checking whether a function argument can be nil, or whether cleanup operations are always performed—using the `golang.org/x/tools/go/ssa` package.
 
-#### Compile Time Errors My Belovéd - Branden J Brown
+#### [Compile Time Errors My Belovéd - Branden J Brown](/2025/Compile%20Time%20Errors%20My%20Belovéd)
 
 Type errors from the compiler tell us when our code is obviously wrong, immediately, without ever having to run our code. But it turns out there are techniques to turn "obviously wrong" into powerful proofs of correctness. We can automatically detect code and tests that need to be updated as faraway definitions change. We can have confidence that our programs run the same on every target, not just the ones we have test runners for. Shall we check out static assertions in Go?
 
