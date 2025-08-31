@@ -126,7 +126,7 @@ Attendees will gain benchmark-driven insights into these techniques, helping the
 
 Whether you’re an SRE, performance engineer, or Go developer, this talk will provide actionable insights and production-ready open-source tools to integrate into your Go applications today.
 
-#### Next-Gen AI Tooling with MCP Servers in Go - Katie Hockman
+#### Next-Gen AI Tooling with MCP Servers in Go - Katie Hockman(/2025/Next-Gen%20AI%20Tooling%20with%20MCP%20Servers%20in%20Go/README.md)
 
 Step into this new era of AI-powered tools with the Model Context Protocol (MCP) server! This session will teach you how to expose your APIs directly into the IDE of your users so they can interact with your systems using natural language. The talk will center around a step-by-step demo where we'll write an MCP server together using the brand new github.com/modelcontextprotocol/go-sdk library. By the end of this session, you’ll be equipped with the knowledge to build your own MCP server to support your AI-enabled users.
 
