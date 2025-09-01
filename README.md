@@ -184,7 +184,7 @@ Can a large language model craft a brand-new murder mystery on demand? Explore a
 
 Feature flags are essential for modern software delivery -- enabling safer rollouts, faster feedback, and more control. In this talk, you’ll learn about OpenFeature, a CNCF project that brings a standard, pluggable approach to feature flags across languages and platforms. You’ll see how easy it is to use with your favorite feature flag management system, and get a peek at the OpenFeature SDK in action.
 
-#### Why Go Rocks for Building a Lua Interpreter - Roxy Light, 256 Lights
+#### [Why Go Rocks for Building a Lua Interpreter - Roxy Light, 256 Lights](2025/Why%20Go%20Rocks%20for%20Building%20a%20Lua%20Interpreter/README.md)
 
 Many Go programs are web services or clients for web APIs. But Go can do more than that! The same features that make Go productive for writing backend systems also make Go ideal for writing a programming language interpreter. In this talk, Roxy will share her experience with writing a Lua interpreter in Go as part of the new zb build tool. You’ll learn how the interpreter is structured and what it took to adapt a mid-sized C library into Go.
 
