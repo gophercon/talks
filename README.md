@@ -192,7 +192,7 @@ Many Go programs are web services or clients for web APIs. But Go can do more th
 
 The popularity of Go in unusual places has been shown by the TinyGo project and the recent bare metal support discussion backed by the Tamago implementation. What people might not realize is that you can compile and run graphical applications at this hardware level as well. In this Lightning Talk, Andrew will show how a Fyne GUI app can run directly from a QEMU EFI boot, removing all the requirements of an operating system.
 
-#### Nil Today, Outage Tomorrow - Mukul Mantosh, JetBrains
+#### [Nil Today, Outage Tomorrow - Mukul Mantosh, JetBrains](./2025/Nil%20Today,%20Outage%20Tomorrow)
 
 We’ve all been there… you deploy in the afternoon and then stroll into work the next day to find everything is broken in production. You sit down, start debugging and checking the logs, and then you find the dreaded nil exception. Come along to my talk to learn how you can use your GoLand IDE to spot nil dereference errors before your code hits production. Avoid panics, embrace safety, and sleep well!
 
