@@ -3,7 +3,7 @@ We’ve all been there… you deploy in the afternoon and then stroll into work 
 
 **Links**
 
--[Code Repository](https://github.com/mukulmantosh/gophercon-2025-nil-dereference)
+- [Code Repository](https://github.com/mukulmantosh/gophercon-2025-nil-dereference)
 - [Slide Deck](https://github.com/mukulmantosh/gophercon-2025-nil-dereference/blob/main/presentation/slides.pdf)
 
 # Speaker Biography
