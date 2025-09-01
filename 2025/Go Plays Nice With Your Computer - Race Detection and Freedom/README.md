@@ -1,6 +1,7 @@
 
 
 # Go Plays Nice With Your Computer - Race Detection and Freedom!
+## Raghav Roy
 
 ### Abstract
 
