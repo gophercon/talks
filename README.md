@@ -50,7 +50,7 @@ Earlier this year, a malicious typosquat of the boltdb package was identified on
 
 When handling over 2 trillion messages every day, every ounce of performance matters. This talk outlines the (over) optimizations that went into making our Go protobuf module as efficient as possible.
 
-#### Building a Decentralized Social Media App with Go and ATProto - Gautam Dey
+#### [Building a Decentralized Social Media App with Go and ATProto - Gautam Dey](/2025/Building%20a%20Decentralized%20Social%20Media%20App%20with%20Go%20and%20ATProto/README.md)
 
 Bluesky is an exciting new decentralized social media platform, powered by the ATProtocol (ATProto). What makes ATProto so revolutionary, and how can Go developers leverage it to build scalable social apps?
 
