@@ -104,7 +104,7 @@ Throughout this talk, we will cover:
 - Goroutines and Concurrency semantics
 - Performance exploration
 
-#### Profiling Request Latency with Critical Path Analysis - Felix Geisendörfer
+#### [Profiling Request Latency with Critical Path Analysis - Felix Geisendörfer](/2025/Profiling%20Request%20Latency%20with%20Critical%20Path%20Analysis/README.md)
 
 Go ships with great tools for diagnosing performance bottlenecks, with pprof’s CPU profiler being perhaps the most well-known and used tool.
 
