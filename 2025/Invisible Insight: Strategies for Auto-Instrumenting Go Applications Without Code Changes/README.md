@@ -1,0 +1,7 @@
+# the talk
+
+Instrumenting Go applications without modifying source code has long been a challenge due to the language’s static nature and lack of dynamic code modification capabilities. This talk explores and compares ready-to-use, open-source solutions that enable auto-instrumentation at compile-time and runtime, analyzing their trade-offs in performance, stability, and security. We will cover leading approaches, including eBPF-based solutions, compile-time instrumentation, and runtime techniques such as shared library injection and binary trampoline methods, to assess their feasibility and limitations.
+
+# about the speaker
+
+Hannah is a recent MIT graduate (co 2024) who now works as a software engineer at Datadog. She helps maintain the Go Tracer, which enables Go users to trace telemetry data and visualize their applications’ performance. She is still a young Gopher, but her work at Datadog has introduced her to relevant topics such as application tracing, performance benchmarking, and instrumentation. Now, she is excited to share her newfound knowledge with the rest of the Go community. In their free time, Hannah is usually writing novels (or at least, trying to), adding to her Beli account, and learning how to run.
