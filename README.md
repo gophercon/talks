@@ -50,7 +50,7 @@ Earlier this year, a malicious typosquat of the boltdb package was identified on
 
 When handling over 2 trillion messages every day, every ounce of performance matters. This talk outlines the (over) optimizations that went into making our Go protobuf module as efficient as possible.
 
-#### Building a Decentralized Social Media App with Go and ATProto - Gautam Dey
+#### [Building a Decentralized Social Media App with Go and ATProto - Gautam Dey](/2025/Building%20a%20Decentralized%20Social%20Media%20App%20with%20Go%20and%20ATProto/README.md)
 
 Bluesky is an exciting new decentralized social media platform, powered by the ATProtocol (ATProto). What makes ATProto so revolutionary, and how can Go developers leverage it to build scalable social apps?
 
@@ -76,7 +76,7 @@ This talk will cover practical insights into building flexible pipelines with Go
 
 ???
 
-#### Scaling LLMs with Go: Production Patterns for Handling Millions of AI Requests - John Wang
+#### [Scaling LLMs with Go: Production Patterns for Handling Millions of AI Requests - John Wang](/2025/Scaling%20LLMs%20with%20Go:%20Production%20Patterns%20for%20Handling%20Millions%20of%20AI%20Requests)
 
 At [Assembled](https://www.assembled.com/), we serve tens of millions of LLM requests, powering customer support AI for companies like Canva, Etsy, and Patreon. While most teams build LLM infrastructure in Python, we found Go's type system, concurrency features, and interfaces solve many production challenges more elegantly.
 
@@ -126,7 +126,7 @@ Attendees will gain benchmark-driven insights into these techniques, helping the
 
 Whether you’re an SRE, performance engineer, or Go developer, this talk will provide actionable insights and production-ready open-source tools to integrate into your Go applications today.
 
-#### Next-Gen AI Tooling with MCP Servers in Go - Katie Hockman
+#### [Next-Gen AI Tooling with MCP Servers in Go - Katie Hockman](/2025/Next-Gen%20AI%20Tooling%20with%20MCP%20Servers%20in%20Go/README.md)
 
 Step into this new era of AI-powered tools with the Model Context Protocol (MCP) server! This session will teach you how to expose your APIs directly into the IDE of your users so they can interact with your systems using natural language. The talk will center around a step-by-step demo where we'll write an MCP server together using the brand new github.com/modelcontextprotocol/go-sdk library. By the end of this session, you’ll be equipped with the knowledge to build your own MCP server to support your AI-enabled users.
 
@@ -184,7 +184,7 @@ Can a large language model craft a brand-new murder mystery on demand? Explore a
 
 Feature flags are essential for modern software delivery -- enabling safer rollouts, faster feedback, and more control. In this talk, you’ll learn about OpenFeature, a CNCF project that brings a standard, pluggable approach to feature flags across languages and platforms. You’ll see how easy it is to use with your favorite feature flag management system, and get a peek at the OpenFeature SDK in action.
 
-#### Why Go Rocks for Building a Lua Interpreter - Roxy Light, 256 Lights
+#### [Why Go Rocks for Building a Lua Interpreter - Roxy Light, 256 Lights](2025/Why%20Go%20Rocks%20for%20Building%20a%20Lua%20Interpreter/README.md)
 
 Many Go programs are web services or clients for web APIs. But Go can do more than that! The same features that make Go productive for writing backend systems also make Go ideal for writing a programming language interpreter. In this talk, Roxy will share her experience with writing a Lua interpreter in Go as part of the new zb build tool. You’ll learn how the interpreter is structured and what it took to adapt a mid-sized C library into Go.
 
@@ -192,7 +192,7 @@ Many Go programs are web services or clients for web APIs. But Go can do more th
 
 The popularity of Go in unusual places has been shown by the TinyGo project and the recent bare metal support discussion backed by the Tamago implementation. What people might not realize is that you can compile and run graphical applications at this hardware level as well. In this Lightning Talk, Andrew will show how a Fyne GUI app can run directly from a QEMU EFI boot, removing all the requirements of an operating system.
 
-#### Nil Today, Outage Tomorrow - Mukul Mantosh, JetBrains
+#### [Nil Today, Outage Tomorrow - Mukul Mantosh, JetBrains](./2025/Nil%20Today,%20Outage%20Tomorrow)
 
 We’ve all been there… you deploy in the afternoon and then stroll into work the next day to find everything is broken in production. You sit down, start debugging and checking the logs, and then you find the dreaded nil exception. Come along to my talk to learn how you can use your GoLand IDE to spot nil dereference errors before your code hits production. Avoid panics, embrace safety, and sleep well!
 
@@ -218,7 +218,7 @@ As Go continues to evolve, so do the tools we use to write it. This talk demonst
 
 As a software engineer who has been working on large-scale Go services for 7 years, Bethany has learned a lot about refining her tooling to maximize productivity while maintaining a lightweight, keyboard-centric workflow. Her journey with Neovim has evolved alongside her Go development experience, resulting in a highly customized environment that balances simplicity with powerful language-specific features.
 
-#### Git Server from Scratch in Go - Sergii Iefremov, Axios Media
+#### [Git Server from Scratch in Go - Sergii Iefremov, Axios Media](/2025/Git%20Server%20from%20Scratch%20in%20Go)
 
 In this talk, Sergii will dive into internals of Git protocol and his experience implementing Git SSH server in Go using excellent gliderlabs/ssh library. This specifically covers internal workings of `git clone` operation and steps Git normally does during its `git-upload-pack` operation. He’ll show some simple Go code that receives SSH requests and walks Git commit graph to select objects to send back to the client.
 
