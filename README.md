@@ -76,7 +76,7 @@ This talk will cover practical insights into building flexible pipelines with Go
 
 ???
 
-#### Scaling LLMs with Go: Production Patterns for Handling Millions of AI Requests - John Wang
+#### [Scaling LLMs with Go: Production Patterns for Handling Millions of AI Requests - John Wang](/2025/Scaling%20LLMs%20with%20Go:%20Production%20Patterns%20for%20Handling%20Millions%20of%20AI%20Requests)
 
 At [Assembled](https://www.assembled.com/), we serve tens of millions of LLM requests, powering customer support AI for companies like Canva, Etsy, and Patreon. While most teams build LLM infrastructure in Python, we found Go's type system, concurrency features, and interfaces solve many production challenges more elegantly.
 
