@@ -218,7 +218,7 @@ As Go continues to evolve, so do the tools we use to write it. This talk demonst
 
 As a software engineer who has been working on large-scale Go services for 7 years, Bethany has learned a lot about refining her tooling to maximize productivity while maintaining a lightweight, keyboard-centric workflow. Her journey with Neovim has evolved alongside her Go development experience, resulting in a highly customized environment that balances simplicity with powerful language-specific features.
 
-#### Git Server from Scratch in Go - Sergii Iefremov, Axios Media
+#### [Git Server from Scratch in Go - Sergii Iefremov, Axios Media](/2025/Git%20Server%20from%20Scratch%20in%20Go)
 
 In this talk, Sergii will dive into internals of Git protocol and his experience implementing Git SSH server in Go using excellent gliderlabs/ssh library. This specifically covers internal workings of `git clone` operation and steps Git normally does during its `git-upload-pack` operation. He’ll show some simple Go code that receives SSH requests and walks Git commit graph to select objects to send back to the client.
 
