@@ -7,7 +7,7 @@
 
 Go is great for writing concurrent programs, but even if you write logically sound programs, you can still give way to data-races that are compiler or hardware dependent. What can you do to prevent them? How does Go help you detect races, and how do the latest changes to TSAN affect a Go dev?
 
-In this demo, we explore the internals of Go's race detector, based on ThreadSanitizer (TSAN), and discover a fascinating connection between its core algorithm—Vector Clocks—and the principles of causality from Einstein's Special Relativity, as explored in the included papers by Einstein and F. Mattern. We will practically demonstrate the architectural leap from TSAN v2 (in Go 1.18) to TSAN v3 (in Go 1.19+), proving its massive improvements in scalability, speed, and memory efficiency.
+In this talk, we also explore the internals of Go's race detector, based on ThreadSanitizer (TSAN), and discover a fascinating connection between its core algorithm—Vector Clocks—and the principles of causality from Einstein's Special Relativity, as explored in the included papers by Einstein and F. Mattern. We will demonstrate the architectural leap from TSAN v2 (in Go 1.18) to TSAN v3 (in Go 1.19+), showing its massive improvements in scalability, speed, and memory efficiency.
 
 ### Links
 
