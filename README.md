@@ -150,7 +150,7 @@ Using Go's cgo, we will demonstrate:
 
 We will also cover common patterns that will help your applications run smoothly. Through practical examples, you will learn how to implement and optimize GPU-accelerated computations in Go. By the end of this talk, you'll be equipped to start incorporating GPU acceleration into your Go projects, achieving significant performance improvements for compute-intensive tasks, including those in machine learning and artificial intelligence.
 
-#### [Go Plays Nice With Your Computer - Race Detection and Freedom! - Raghav Roy](Go%20Plays%20Nice%20With%20Your%20Computer%20-%20Race%20Detection%20and%20Freedom)
+#### [Go Plays Nice With Your Computer - Race Detection and Freedom! - Raghav Roy](/2025/Go%20Plays%20Nice%20With%20Your%20Computer%20-%20Race%20Detection%20and%20Freedom)
 
 Go is great for writing concurrent programs, but even if you write logically sound programs, you can still give way to data races that are compiler- or hardware-dependent. What can you do to prevent them? How does Go help you detect races, and how do the latest changes to TSAN affect a Go dev? Also, does Einstein have anything to do with this?
 
