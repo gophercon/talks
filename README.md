@@ -90,7 +90,7 @@ From the beginning, the TypeScript compiler has been self-hosted, evolving along
 
 An exploration of the challenges of managing languages in a large enterprise and the role that communities of practice play in providing standardization from a diverse set of opinions.
 
-#### An Operating System in Go - Patricio Whittingslow
+#### [An Operating System in Go - Patricio Whittingslow](/2025/An%20Operating%20System%20in%20Go/README.md)
 
 We’ll answer the age-old question — “Is Go a systems programming language?” — by showcasing TinyGo’s rise as the unexpected contender in embedded systems, upending assumptions about a space long thought settled.
 
