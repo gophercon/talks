@@ -188,7 +188,7 @@ Feature flags are essential for modern software delivery -- enabling safer rollo
 
 Many Go programs are web services or clients for web APIs. But Go can do more than that! The same features that make Go productive for writing backend systems also make Go ideal for writing a programming language interpreter. In this talk, Roxy will share her experience with writing a Lua interpreter in Go as part of the new zb build tool. You’ll learn how the interpreter is structured and what it took to adapt a mid-sized C library into Go.
 
-#### Apps Without an Operating System?! - Andrew Williams, Apptrix.ai
+#### [Apps Without an Operating System?! - Andrew Williams, Apptrix.ai](2025/Graphical%20Apps%20Without%20an%20Operating%20System/README.md)
 
 The popularity of Go in unusual places has been shown by the TinyGo project and the recent bare metal support discussion backed by the Tamago implementation. What people might not realize is that you can compile and run graphical applications at this hardware level as well. In this Lightning Talk, Andrew will show how a Fyne GUI app can run directly from a QEMU EFI boot, removing all the requirements of an operating system.
 
