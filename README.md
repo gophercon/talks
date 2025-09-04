@@ -10,7 +10,7 @@ If materials are available for a talk, the title will be a link to a sub-folder 
 
 ### Main Theater
 
-#### Go's Next Frontier - Cameron Balahan
+#### [Go's Next Frontier - Cameron Balahan](./Go%27s%20Next%20Frontier/README.md)
 
 Go is more than just a programming language—it's an industry pioneer. From its revolutionary concurrency model to its leadership in open-source security, Go's enduring focus on modern software engineering compels us to not just keep pace with industry advancements but to actively define and lead them.
 
