@@ -130,7 +130,7 @@ Whether you’re an SRE, performance engineer, or Go developer, this talk will p
 
 Step into this new era of AI-powered tools with the Model Context Protocol (MCP) server! This session will teach you how to expose your APIs directly into the IDE of your users so they can interact with your systems using natural language. The talk will center around a step-by-step demo where we'll write an MCP server together using the brand new github.com/modelcontextprotocol/go-sdk library. By the end of this session, you’ll be equipped with the knowledge to build your own MCP server to support your AI-enabled users.
 
-#### Supercharging ML Pipelines with Go - Viadehi Thete
+#### [Supercharging ML Pipelines with Go - Vaidehi Thete](2025/Supercharging%20ML%20Pipelines%20With%20Go/README.md)
 
 Building scalable and efficient machine learning pipelines often requires overcoming bottlenecks in data transfer, feature retrieval, and orchestration. This talk showcases how Go was leveraged to operationalize an ML model service, transforming it into a high-performance, real-time system. By utilizing Go’s powerful concurrency model, shared memory for inter-process communication, and efficient queuing mechanisms, we reduced inference times from hours to just 10-15 minutes.
 
